@@ -38,7 +38,6 @@ public class Main {
                 continue;
             }
 
-
             if (Valid(hex_input) && Valid(hex_key)) {
 
                 int shift;
@@ -165,7 +164,7 @@ public class Main {
 
         // TODO
 
-        
+
 
         return "";
     }

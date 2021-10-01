@@ -26,11 +26,11 @@ public class Main {
         String string_shift;
 
         while (true) {
-            System.out.print("Enter a HEXADECIMAL KEY value   : ");
+            System.out.print("Enter a HEXADECIMAL KEY value : ");
             hex_key = scanner.nextLine().toUpperCase();
             System.out.print("Enter a HEXADECIMAL INPUT value : ");
             hex_input = scanner.nextLine().toUpperCase();
-            System.out.println("Enter a SHIFT COUNT value     : ");
+            System.out.print("Enter a SHIFT COUNT value : ");
             string_shift = scanner.nextLine();
 
             if (hex_key.length() > hex_input.length()) {
@@ -68,6 +68,11 @@ public class Main {
 
             } else {
                 System.out.println("\nInvalid Input, please try again.\n");
+            }
+
+            System.out.print("\nContinue [Y/n]? : ");
+            if(scanner.nextLine().toLowerCase().contains("n")) {
+                break;
             }
         }
     }
@@ -141,9 +146,9 @@ public class Main {
         return fixedKey.toString();
     }
 
-    private static String BinaryStringXOR(String bin_key, String bin_unary_input) { // TODO
+    private static String BinaryStringXOR(String bin_key, String bin_unary_input) { // CALLED IN "main"
 
-        // TODO
+        // XOR's THE 'bin_key' AND 'bin_unary_input' TOGETHER AND RETURNS THE OUTPUT
 
         int n = bin_unary_input.length();
 
@@ -160,13 +165,17 @@ public class Main {
         return result.toString();
     }
 
-    private static String ShiftBits(String xor_, int shift) { // TODO
+    private static String ShiftBits(String xor_, int shift) { // CALLED IN "main"
 
-        // TODO
+        // SHIFT THE BITS IN 'xor_' TO THE LEFT FOR 'shift' AMOUNT
 
+        String result = xor_;
 
+        for (int i = 0; i < shift; i++) {
+            result = result.substring(1) + result.charAt(0);
+        }
 
-        return "";
+        return result;
     }
 
     public static HashMap<Character, String> HexTable() { // CALLED IN "HexToBin"
